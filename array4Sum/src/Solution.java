@@ -23,7 +23,7 @@ public class Solution {
                     for(int fou = thd +1; fou < nums.length; fou++) {
                         if (nums[first]+nums[sec]+nums[thd]+nums[fou] == target) {
                             List<Integer> tmpList = new ArrayList<>();
-                            tmpList.add(nums[first]);
+                            tmpList.add(nums[first]);  // int type cannot use Arrays.aList(...);
                             tmpList.add(nums[sec]);
                             tmpList.add(nums[thd]);
                             tmpList.add(nums[fou]);
