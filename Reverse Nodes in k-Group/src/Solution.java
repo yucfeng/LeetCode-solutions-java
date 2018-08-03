@@ -28,7 +28,6 @@ public class Solution {
                 isHead = false;
             }
             head.next = lastMoveNode.next;
-
             lastNode = head;
             head = head.next;
         }
@@ -37,8 +36,7 @@ public class Solution {
 
     public boolean isLastGroup(ListNode node, int k) {
         int i = 0;
-        while (true) {
-            if (node == null) break;
+        while (node != null) {
             node = node.next;
             i++;
         }
