@@ -15,5 +15,9 @@ public class Binarysearch {
     public static void main(String[] args) {
         int[] nums = {5,5,7,8,8,10};
         System.out.println(binarySearch(nums, 0, nums.length, 5));
+        int[] b = new int[10];
+        System.out.println(b[1]);
+        char c = '9';
+        System.out.println(b[Integer.parseInt(String.valueOf(c))]);
     }
 }
