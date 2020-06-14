@@ -8,9 +8,8 @@ import java.util.Stack;
 public class Solution {
     public static int longestValidParentheses(String s) {
         int res = 0;
-        if (s.length() < 1) return res;
+//        if (s.length() < 1) return res;
         Stack stack = new Stack();
-        int cur = 0;
         stack.push(-1);
         for (int i=0; i<s.length(); i++) {
             if (s.charAt(i) == ')' && stack.size() > 1 && s.charAt((int)stack.peek()) == '(') {
