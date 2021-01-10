@@ -1,44 +1,48 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
- * Given a collection of distinct integers, return all possible permutations.
- * 3! = 6
- * 4 * 3！ = 24
+ * Given a collection of numbers that might contain duplicates, return all possible unique permutations.
  */
 class Solution2 {
-    public static List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-
-//        for (int i = 0; i < simpleCircle(len - 1); i++) {
-//            res.add(new ArrayList<>());
-//        }
-        return add(res, nums);
-    }
-
-    private static List<List<Integer>> add(List<List<Integer>> res, int[] nums) {
+    public List<List<Integer>> permuteUnique(int[] nums) {
         int len = nums.length;
-        if (len == 0) return res;
-        for (int n : nums) {
-            res.forEach(list -> {
-                if (!list.contains(n)) {
-                    list.add(n);
-                }
-            });
-//
-//
-//                if (res.size() <= i) {
-//                    res.add(Collections.singletonList(n));
-//                } else {
-//                    res.get(i).add(n);
-//                }
-//            }
-            add(res, remove(nums));
+        List<List<Integer>> res = new ArrayList<>();
+        if (len == 0) {
+            return res;
         }
+
+        boolean[] used = new boolean[len]; // 空间换时间
+        Integer[] lastNums = new Integer[len]; //
+        List<Integer> path = new ArrayList<>();
+
+        dfs(nums, len, 0, path, used, res, lastNums);
         return res;
+    }
+    private void dfs(int[] nums, int len, int depth,
+                     List<Integer> path, boolean[] used,
+                     List<List<Integer>> res, Integer[] lastNums) {
+        if (depth == len) {
+            List<Integer> pathToAdd = new ArrayList<>(path); // 浅拷贝
+            res.add(pathToAdd);
+            return;
+        }
+
+        for (int i = 0; i < len; i++) {
+            if (!used[i] && (lastNums[i] == null || !lastNums[i].equals(nums[i]))) {
+                path.add(nums[i]);
+                used[i] = true;
+
+                dfs(nums, len, depth + 1, path, used, res, lastNums);
+                // 回溯
+                used[i] = false;
+                lastNums[i] = path.get(path.size() - 1);
+                path.remove(path.size() - 1);
+                // 回溯后，不能再接着搜索相同的值
+
+            }
+        }
     }
 
     private static int[] remove(int[] nums) {
@@ -68,7 +72,8 @@ class Solution2 {
     }
 
     public static void main(String[] ar) {
-        int[] a = {1, 2, 3};
-        System.out.println(permute(a));
+        Solution2 solution = new Solution2();
+        int[] a = {1, 1, 3};
+        System.out.println(solution.permuteUnique(a));
     }
 }
