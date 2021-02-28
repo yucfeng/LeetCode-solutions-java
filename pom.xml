@@ -10,14 +10,23 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>n-queens</module>
+        <module>maximum-subarray</module>
     </modules>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>[4.13.1,)</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
 
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <java.version>9</java.version>
+        <maven.compiler.source>9</maven.compiler.source>
+        <maven.compiler.target>9</maven.compiler.target>
+    </properties>
 </project>
