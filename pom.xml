@@ -11,6 +11,8 @@
     <modules>
         <module>n-queens</module>
         <module>maximum-subarray</module>
+        <module>spiral-matrix</module>
+        <module>merge-intervals</module>
     </modules>
     <dependencies>
         <dependency>

@@ -49,7 +49,7 @@ public class Solution {
             digits = new int[10];
         }
         // validate sub-boxes
-        int[][] nums = {{0,0}, {0,1}, {0,2}, {1,0}, {1,1}, {1,2}, {2,0}, {2,1}, {2,2}};
+        intF[][] nums = {{0,0}, {0,1}, {0,2}, {1,0}, {1,1}, {1,2}, {2,0}, {2,1}, {2,2}};
         for (int[] num : nums) {
             for (int i=0; i<3; i++) {
                 for (int j=0; j<3; j++) {
