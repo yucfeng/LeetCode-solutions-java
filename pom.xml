@@ -13,6 +13,8 @@
         <module>maximum-subarray</module>
         <module>spiral-matrix</module>
         <module>merge-intervals</module>
+        <module>insert-interval</module>
+        <module>length-of-last-word</module>
     </modules>
     <dependencies>
         <dependency>

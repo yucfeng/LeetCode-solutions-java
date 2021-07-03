@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+n[0][0], n[0][1], n[0][2],
+n[1][0], n[1][1], n[1][2],
+n[2][0], n[2][1], n[2][2]
+ */
 public class SpiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
         return spiralOrder(new ArrayList<>(), matrix, matrix.length, matrix[0].length);
