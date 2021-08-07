@@ -1,3 +1,4 @@
+package yucfeng.com;
 
 /**
  * Given a linked list, remove the n-th node from the end of list and return its head.
@@ -40,8 +41,8 @@ public class Solution {
             anotherNode = anotherNode.next;
         }
 
-//        ListNode curNode = head;
-//        ListNode anotherNode = head;
+//        yucfeng.com.ListNode curNode = head;
+//        yucfeng.com.ListNode anotherNode = head;
 //        while (true) {
 //            int i = 0;
 //            while (i < n - 1) {
