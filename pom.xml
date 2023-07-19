@@ -17,6 +17,7 @@
         <module>length-of-last-word</module>
         <module>permutation-sequence</module>
         <module>list-nodes</module>
+        <module>Count-and-Say</module>
     </modules>
     <dependencies>
         <dependency>
