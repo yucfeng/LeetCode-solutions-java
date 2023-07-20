@@ -18,6 +18,8 @@
         <module>permutation-sequence</module>
         <module>list-nodes</module>
         <module>Count-and-Say</module>
+        <module>HJ</module>
+        <module>NC</module>
     </modules>
     <dependencies>
         <dependency>
