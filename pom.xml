@@ -20,6 +20,7 @@
         <module>Count-and-Say</module>
         <module>HJ</module>
         <module>NC</module>
+        <module>LeetCodeCN</module>
     </modules>
     <dependencies>
         <dependency>
