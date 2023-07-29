@@ -21,6 +21,8 @@
         <module>HJ</module>
         <module>NC</module>
         <module>LeetCodeCN</module>
+        <module>string-problems</module>
+        <module>sort</module>
     </modules>
     <dependencies>
         <dependency>
