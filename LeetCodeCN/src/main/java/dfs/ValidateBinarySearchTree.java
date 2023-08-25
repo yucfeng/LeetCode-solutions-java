@@ -1,6 +1,7 @@
 package dfs;
 
 import org.junit.Test;
+import structure.TreeNode;
 
 // https://leetcode.cn/problems/validate-binary-search-tree/
 public class ValidateBinarySearchTree {
@@ -25,21 +26,3 @@ public class ValidateBinarySearchTree {
     }
 }
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
