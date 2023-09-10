@@ -1,4 +1,4 @@
-package structure;
+package treenode;
 
 public class TreeNode {
     public int val;

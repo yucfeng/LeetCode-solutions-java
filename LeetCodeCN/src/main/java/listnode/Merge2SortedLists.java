@@ -1,4 +1,6 @@
-package structure;
+package listnode;
+
+import listnode.ListNode;
 
 // https://leetcode.cn/problems/merge-two-sorted-lists/
 public class Merge2SortedLists {

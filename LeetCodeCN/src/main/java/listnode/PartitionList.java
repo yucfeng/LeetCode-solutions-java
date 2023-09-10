@@ -1,4 +1,6 @@
-package structure;
+package listnode;
+
+import listnode.ListNode;
 
 // https://leetcode.cn/problems/partition-list/
 public class PartitionList {

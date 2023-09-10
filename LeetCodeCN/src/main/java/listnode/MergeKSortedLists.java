@@ -1,6 +1,7 @@
-package structure;
+package listnode;
 
-import java.util.Arrays;
+import listnode.ListNode;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 

@@ -1,4 +1,6 @@
-import structure.ListNode;
+package listnode;
+
+import listnode.ListNode;
 
 // https://leetcode.cn/problems/remove-nth-node-from-end-of-list/
 public class RemoveNodeFromEnd {

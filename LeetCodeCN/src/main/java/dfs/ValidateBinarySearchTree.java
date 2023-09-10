@@ -1,7 +1,7 @@
 package dfs;
 
 import org.junit.Test;
-import structure.TreeNode;
+import treenode.TreeNode;
 
 // https://leetcode.cn/problems/validate-binary-search-tree/
 public class ValidateBinarySearchTree {

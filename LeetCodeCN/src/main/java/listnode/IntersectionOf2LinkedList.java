@@ -1,4 +1,4 @@
-package structure;
+package listnode;
 
 // https://leetcode.cn/problems/intersection-of-two-linked-lists/
 public class IntersectionOf2LinkedList {

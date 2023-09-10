@@ -1,4 +1,4 @@
-import structure.ListNode;
+package listnode;
 
 import java.util.HashSet;
 import java.util.Set;
