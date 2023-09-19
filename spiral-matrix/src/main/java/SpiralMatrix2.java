@@ -11,6 +11,48 @@ n[2][0], n[2][1], n[2][2]
  */
 
 public class SpiralMatrix2 {
+
+    public int[][] generateMatrix2(int n) {
+        int[][] matrix = new int[n][n];
+        int upper_bound = 0, lower_bound = n - 1;
+        int left_bound = 0, right_bound = n - 1;
+
+        int num = 1;
+        while (num <= n * n) {
+            // -->
+            if (upper_bound <= lower_bound) {
+                for (int i = left_bound; i <= right_bound; i++) {
+                    matrix[upper_bound][i] = num;
+                    num++;
+                }
+                upper_bound++;
+            }
+            // 向下
+            if (left_bound <= right_bound) {
+                for (int i = upper_bound; i <=lower_bound; i++) {
+                    matrix[i][right_bound] = num;
+                    num++;
+                }
+                right_bound--;
+            }
+            // <--
+            if (upper_bound <= lower_bound) {
+                for (int i = right_bound; i >= left_bound; i--) {
+                    matrix[lower_bound][i] = num++;
+                }
+                lower_bound--;
+            }
+            // 向上
+            if (left_bound <= right_bound) {
+                for (int i = lower_bound; i >= upper_bound; i--) {
+                    matrix[i][left_bound] = num++;
+                }
+                left_bound++;
+            }
+        }
+        return matrix;
+    }
+
     public int[][] generateMatrix(int n) {
         int[][] matrix = new int[n][n];
         return spiralOrder(matrix, n, 1);
