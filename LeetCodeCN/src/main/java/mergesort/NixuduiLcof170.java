@@ -33,21 +33,23 @@ public class NixuduiLcof170 {
         int j = mid + 1;
         int count = 0;
         for (int k = left; k <= right; k++) {
-            // 考虑下表越界
+            // 考虑下标越界
             if (i == mid + 1) {
                 record[k] = temp[j];
                 j++;
             } else if (j == right + 1) {
                 record[k] = temp[i];
                 i++;
-            // 开始归并
+                count += j - mid - 1;
+                // 开始归并
             } else if (temp[i] <= temp[j]) {
                 record[k] = temp[i];
                 i++;
+                count += j - mid - 1;  // (j - 1) - (mid + 1) + 1
             } else {
                 record[k] = temp[j];
                 j++;
-                count += mid - i + 1;
+//                count += mid - i + 1;
             }
         }
         return count;
