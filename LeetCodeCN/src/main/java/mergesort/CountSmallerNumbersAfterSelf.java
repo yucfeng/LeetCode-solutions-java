@@ -4,56 +4,63 @@ import java.util.ArrayList;
 import java.util.List;
 // https://leetcode.cn/problems/count-of-smaller-numbers-after-self/description/
 public class CountSmallerNumbersAfterSelf {
-    List<Integer> ans;
+    int[] ansArr;
     public List<Integer> countSmaller(int[] nums) {
         int len = nums.length;
-        ans = new ArrayList<>(len);
-        if (len < 2) return ans;
+        List<Integer> ans = new ArrayList<>(len);
+        if (len == 1) {
+            ans.add(0);
+            return ans;
+        }
         int[] temp = new int[len];
-        reversePairs(nums, 0, len - 1, temp);
+        int[] indexes = new int[len];
+        ansArr = new int[len];
+        for (int i=0;i<len;i++) {
+            indexes[i] = i;
+        }
+        reversePairs(nums, 0, len - 1, indexes, temp);
+        for(int i : ansArr) {
+            ans.add(i);
+        }
         return ans;
     }
 
-    private int reversePairs(int[] nums, int left, int right, int[] temp) {
-        if (left == right) return 0;
+    private void reversePairs(int[] nums, int left, int right, int[] indexes, int[] temp) {
+        if (left == right) return;
         int mid = (left + right) / 2;
-        int leftPairs = reversePairs(nums, left, mid, temp);
-        int rightPairs = reversePairs(nums, mid + 1, right, temp);
-        if (nums[mid] <= nums[mid + 1]) {
-            return leftPairs + rightPairs;
+        reversePairs(nums, left, mid, indexes, temp);
+        reversePairs(nums, mid + 1, right, indexes, temp);
+        if (nums[indexes[mid]] <= nums[indexes[mid + 1]]) {
+            return;
         }
-        int crossPairs = mergeAndCount(nums, left, mid, right, temp);
-        return leftPairs + rightPairs + crossPairs;
+        mergeAndCount(nums, left, mid, right, indexes, temp);
     }
 
-    private int mergeAndCount(int[] nums, int left, int mid, int right, int[] temp) {
+    private void mergeAndCount(int[] nums, int left, int mid, int right, int[] indexes, int[] temp) {
         for (int i = left; i <= right; i++) {
-            temp[i] = nums[i];
+            temp[i] = indexes[i];
         }
 
         int i = left;
         int j = mid + 1;
-        int count = 0;
         for (int k = left; k <= right; k++) {
             // 考虑下标越界
             if (i == mid + 1) {
-                nums[k] = temp[j];
+                indexes[k] = temp[j];
                 j++;
             } else if (j == right + 1) {
-                nums[k] = temp[i];
+                indexes[k] = temp[i];
                 i++;
-                count += j - mid - 1;
+                ansArr[indexes[k]] += j - mid - 1;
                 // 开始归并
-            } else if (temp[i] <= temp[j]) {
-                nums[k] = temp[i];
+            } else if (nums[temp[i]] <= nums[temp[j]]) {
+                indexes[k] = temp[i];
                 i++;
-                count += j - mid - 1;  // (j - 1) - (mid + 1) + 1
+                ansArr[indexes[k]] += j - mid - 1;  // (j - 1) - (mid + 1) + 1
             } else {
-                nums[k] = temp[j];
+                indexes[k] = temp[j];
                 j++;
-//                count += mid - i + 1;
             }
         }
-        return count;
     }
 }
